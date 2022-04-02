@@ -119,10 +119,27 @@ https://www.figma.com/proto/sHubGPDgs3uiNYQueYGwMX/Beyond-Demo-(Copy)?node-id=20
 Tasks
 | Objects  | Type | Description|
 | ------------- | ------------- |------------- |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
+| Description  | Text| describe task |
+| Title | String  | Title of tasks |
+| Priority | Enum  | Non-Important,Important |
+| Urgency  | Enum | Non-Urgent, Urgent |
+| Date Made| Date | date task was made|
+|completed| boolean| no or yes|
+| UserID  | Pointer to User (Foreign Key)| Connects to Profiles Table|
+  -------------  -------------  -------------
 Profiles
-
+| Objects  | Type | Description|
+| ------------- | ------------- |------------- |
+| UserID | String | Content Cell |
+| Password | String | Content Cell |
+| Image        |  Image            |  Optional Profile Image          |
+  -------------  -------------  -------------
+Tasks
+| Objects  | Type | Description|
+| ------------- | ------------- |------------- |
+| Content Cell  | Content Cell  | Content Cell |
+| Content Cell  | Content Cell  | Content Cell |
+  -------------  -------------  -------------
 ## Networking
 ### List of Network Request by Screen
 * Login Screen
