@@ -47,8 +47,9 @@ V3 we would finally upload it to the market, and have it as a real product.
 * Due date's for tasks overriding any Eisenhower priority
 * Sync tasks across iCloud
 * Users can be awarded a badge for each task done.
+* Users can add friends
 * Users can invite friends or join badge ranking races.
-
+* Settings
 ### 2. Screen Archetypes
 * Welcome Screen
    * Animation showing how task pruning works
@@ -63,7 +64,7 @@ V3 we would finally upload it to the market, and have it as a real product.
    * Edit Task Priority 
    * Move Task from Task Dump to Today
 * Tomorrow Tab
-   *  Create a task
+   * Create a task
    * Display Tasks
    * Ability to delete Tasks inline
 * Task Dump Tab
@@ -79,7 +80,6 @@ V3 we would finally upload it to the market, and have it as a real product.
    * Add photo
    * Profile
    * Badges(Can be Shared)/Friends(Can be added friends)/Ranking(Can be shared)
-   * 
  * Setting Screen(optional)
    * Account setting
    * Language changed
@@ -89,12 +89,11 @@ V3 we would finally upload it to the market, and have it as a real product.
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
-
 * Today Tab
 * Tomorrow Tab
 * Task Dump
-* Profile
-* Setting
+* Profile (Optional)
+* Setting (Optional)
 
 **Flow Navigation** (Screen to Screen)
 
@@ -117,4 +116,38 @@ https://www.figma.com/proto/sHubGPDgs3uiNYQueYGwMX/Beyond-Demo-(Copy)?node-id=20
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
+Tasks
+| Objects  | Type | Description|
+| ------------- | ------------- |------------- |
+| Content Cell  | Content Cell  | Content Cell |
+| Content Cell  | Content Cell  | Content Cell |
+Profiles
+
+## Networking
+### List of Network Request by Screen
+* Login Screen
+(Read/GET) 
+* Today Tab
+  *(Create) Create a new Task
+  *(Read/GET) Read all tasks and list them on Page
+  *(Update)  Update a Task
+  *(Delete) Delete a Task
+* Tomorrow Tab
+  * (Create) Create a new Task
+  * (Read/GET) Read all tasks and list them on Page
+  * (Update)  Update a Task
+  * (Delete) Delete a Task
+* Task Dump
+  * (Create) Create a new Task
+  * (Read/GET) Read all tasks and list them on Page
+  * (Update)  Update a Task
+  * (Delete) Delete a Task
+* Profile (Optional)
+  * (Read/GET) Read Profile information such as images
+  * (Update) Update profile
+* Setting (Optional)
+   * (Read/GET) Read Settings
+   * (Update) Update Settings
+  
+Reading
 
