@@ -75,12 +75,12 @@ V3 we would finally upload it to the market, and have it as a real product.
    * Add a name
    * Set Eisenhower priorities   
    * Set a due date (optional)
- * Profile Screen
+ * Profile Screen(optional)
    * Add photo
    * Profile
    * Badges(Can be Shared)/Friends(Can be added friends)/Ranking(Can be shared)
    * 
- * Setting Screen
+ * Setting Screen(optional)
    * Account setting
    * Language changed
    * Privacy
