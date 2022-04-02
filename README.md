@@ -124,22 +124,44 @@ Tasks
 | Priority | Enum  | Non-Important,Important |
 | Urgency  | Enum | Non-Urgent, Urgent |
 | Date Made| Date | date task was made|
-|completed| boolean| no or yes|
+|Date of Completion| Date| when will this Task need to be completed|
 | UserID  | Pointer to User (Foreign Key)| Connects to Profiles Table|
   -------------  -------------  -------------
+  
 Profiles
 | Objects  | Type | Description|
 | ------------- | ------------- |------------- |
-| UserID | String | Content Cell |
-| Password | String | Content Cell |
+| UserID | Unique String (Primary Key) | Username and loginID|
+| Password | String | Password to Login |
 | Image        |  Image            |  Optional Profile Image          |
   -------------  -------------  -------------
-Tasks
+  
+Tommorow Tasks
 | Objects  | Type | Description|
 | ------------- | ------------- |------------- |
-| Content Cell  | Content Cell  | Content Cell |
-| Content Cell  | Content Cell  | Content Cell |
+| Task ID | Tasks  | Tasks that will be scheduled next morning Limited to 3 |
   -------------  -------------  -------------
+  
+Todays Tasks
+| Objects  | Type | Description|
+| ------------- | ------------- |------------- |
+| Task ID  | Tasks | Tasks that are due today belong to this list Limited to 3 |
+  -------------  -------------  -------------
+
+Task Dump
+| Objects  | Type | Description|
+| ------------- | ------------- |------------- |
+| Task ID | Tasks  | Tasks that dont have a due date belong in this list|
+  -------------  -------------  -------------
+
+Settings will be saved in User Defaults on the Local APP
+
+| Objects  | Type | Description|
+| ------------- | ------------- |------------- |
+| Language | String |  String to choose which language app will display |
+| Enable Notifications | Boolean | Boolean to decide if alerts are permissable |
+
+Log out will just be a function on the local APP
 ## Networking
 ### List of Network Request by Screen
 * Login Screen
@@ -166,5 +188,5 @@ Tasks
    * (Read/GET) Read Settings
    * (Update) Update Settings
   
-Reading
+
 
