@@ -106,6 +106,8 @@ V3 we would finally upload it to the market, and have it as a real product.
 ## Wireframes
 <img src="https://raw.githubusercontent.com/mata-m/mata-m_public/main/Beyond.png" width=600>
 
+![image](https://user-images.githubusercontent.com/93957786/161389820-c7702c7d-fc25-4cd3-8eaa-8c393be5e769.png)
+
 ### [BONUS] Digital Wireframes & Mockups
 https://www.figma.com/file/sHubGPDgs3uiNYQueYGwMX/Beyond-Demo-(Copy)?node-id=193%3A3
 
