@@ -2,11 +2,11 @@
 //  SceneDelegate.swift
 //  BeyondList
 //
-//  Created by Mark on 3/26/22.
+//  Created by 07elenazheng-@naver.com on 4/5/22.
 //
 
 import UIKit
-
+import Parse
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -17,6 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let todayTaskNavigationController = main.instantiateViewController(withIdentifier: "TodayTaskNavigationController")
+            window?.rootViewController = todayTaskNavigationController
+            
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

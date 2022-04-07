@@ -1,0 +1,6 @@
+framework module Pods_BeyondList {
+  umbrella header "Pods-BeyondList-umbrella.h"
+
+  export *
+  module * { export * }
+}

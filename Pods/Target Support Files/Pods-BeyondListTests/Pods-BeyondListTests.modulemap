@@ -1,0 +1,6 @@
+framework module Pods_BeyondListTests {
+  umbrella header "Pods-BeyondListTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
