@@ -108,10 +108,9 @@ V3 we would finally upload it to the market, and have it as a real product.
 ![image](https://user-images.githubusercontent.com/93957786/161389820-c7702c7d-fc25-4cd3-8eaa-8c393be5e769.png)
 
 ### [BONUS] Digital Wireframes & Mockups
-launch_screen.png<img width="351" alt="image" src="https://user-images.githubusercontent.com/93957786/162555299-ba4a628d-cfa8-4558-82d4-1b63e7c03ab3.png" width = 300>
-Signin/signup.png<img width="354" alt="image" src="https://user-images.githubusercontent.com/93957786/162555315-673700c0-9b78-4d82-8231-d6a8ad74e14d.png"width = 300>
-TodayTask.png<img width="364" alt="image" src="https://user-images.githubusercontent.com/93957786/162555320-3cfa5b48-9984-417d-a9c2-78eef85cee85.png" width = 300>
-Create new task.png<img width="372" alt="image" src="https://user-images.githubusercontent.com/93957786/162555323-170109e6-c61c-442e-bd2c-98b0008da65e.png" width = 300>
+
+<img width="721" alt="mockupshots" src="https://user-images.githubusercontent.com/93957786/162555758-beb46c64-6ff6-4782-9907-2e73735cb0ee.png">
+
 https://recordit.co/tlNEhmMDG6.gif
 
 
