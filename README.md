@@ -473,5 +473,4 @@ class TomorrowTaskTableViewController: UITableViewController{
   ** Base URL - https://parseapi.back4app.com
   
 # Build Progress 1 
-https://recordit.co/tlNEhmMDG6.gif
-
+<img src='https://recordit.co/tlNEhmMDG6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
