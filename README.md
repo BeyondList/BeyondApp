@@ -474,3 +474,13 @@ class TomorrowTaskTableViewController: UITableViewController{
   
 # Build Progress 1 
 <img src='https://recordit.co/tlNEhmMDG6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Required Must-have Stories
+
+Completed User stories
+User login/Sign up (Completed)
+Create a Task 
+Delete a Task
+Search for a task
+Prune Tasks
+Move Task from Task Dump to Today or Tomorrow's list & vice-versa (Completed)
+Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and urgency score.
