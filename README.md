@@ -111,13 +111,17 @@ V3 we would finally upload it to the market, and have it as a real product.
 
 <img width="721" alt="mockupshots" src="https://user-images.githubusercontent.com/93957786/162555758-beb46c64-6ff6-4782-9907-2e73735cb0ee.png">
 
-https://recordit.co/tlNEhmMDG6.gif
+
 
 
 
 https://www.figma.com/file/sHubGPDgs3uiNYQueYGwMX/Beyond-Demo-(Copy)?node-id=193%3A3
 
 ### [BONUS] Interactive Prototype
+
+https://recordit.co/tlNEhmMDG6.gif
+
+
 https://www.figma.com/proto/sHubGPDgs3uiNYQueYGwMX/Beyond-Demo-(Copy)?node-id=201%3A1034&starting-point-node-id=201%3A1034
 
 ## Schema 
@@ -172,7 +176,45 @@ Log out will just be a function on the local APP
 ## Networking
 ### List of Network Request by Screen
 * Login Screen
+  
 (Read/GET) 
+
+class LoginViewController: UIViewController {
+       
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func onSignIn(_ sender: Any) {
+        let username = usernameField.text!
+        let password = passwordField.text!
+        
+        PFUser.logInWithUsername(inBackground: username, password: password){(user, error)in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }else {
+                print("Error: \(error?.localizedDescription)")
+            }
+        }
+                
+    }
+    @IBAction func onSignUp(_ sender: Any) {
+        let user = PFUser()
+        user.username = usernameField.text
+        user.password = passwordField.text
+        user.signUpInBackground{(success, error )in
+            if success{
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }else{
+               print("Error: \(error?.localizedDescription)")
+            }
+        }
+    }
+}
+   
 * Today Tab
   *(Create) Create a new Task
   *(Read/GET) Read all tasks and list them on Page
