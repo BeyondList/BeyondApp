@@ -33,9 +33,9 @@ V3 we would finally upload it to the market, and have it as a real product.
 
 **Required Must-have Stories**
 
-* Welcome screen-->What is Task Pruning Screen
-* User login/Sign up
-* Create a Task
+* Welcome screen-->What is Task Pruning Screen in progress
+* User login/Sign up (in progress)
+* Create a Task (in progress)
 * Delete a Task
 * Search for a task
 * Prune Tasks
@@ -472,5 +472,6 @@ class TomorrowTaskTableViewController: UITableViewController{
  * Existing API Endpoints
   ** Base URL - https://parseapi.back4app.com
   
-
+# Build Progress 1 
+https://recordit.co/tlNEhmMDG6.gif
 
