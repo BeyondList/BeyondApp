@@ -187,6 +187,7 @@ Log out will just be a function on the local APP
 * Setting (Optional)
    * (Read/GET) Read Settings
    * (Update) Update Settings
+   * Delete user's account
   
 
 
