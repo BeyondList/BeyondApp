@@ -477,10 +477,10 @@ class TomorrowTaskTableViewController: UITableViewController{
 Required Must-have Stories
 
 Completed User stories
-User login/Sign up (Completed)
-Create a Task 
-Delete a Task
-Search for a task
-Prune Tasks
-Move Task from Task Dump to Today or Tomorrow's list & vice-versa (Completed)
-Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and urgency score.
+*~~login/Sign up (Completed)~~
+*Create a Task (in-Progress)
+*Delete a Task (in-Progress)
+*Search for a task (in-Progress)
+*Prune Tasks
+*Move Task from Task Dump to Today or Tomorrow's list & vice-versa
+*Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and urgency score.
