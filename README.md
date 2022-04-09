@@ -476,7 +476,7 @@ class TomorrowTaskTableViewController: UITableViewController{
 <img src='https://recordit.co/tlNEhmMDG6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 Required Must-have Stories
 
-Completed User stories
+# Completed User stories
   *~~login/Sign up (Completed)~~
   *Create a Task (in-Progress)
   *Delete a Task (in-Progress)
