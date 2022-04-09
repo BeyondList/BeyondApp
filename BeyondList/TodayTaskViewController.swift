@@ -70,6 +70,29 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
        
     }
     
+    
+    /* needed for adding delete task cell func
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let newtaskObject = PFObject(className: "Tasks")
+        let taskCell = tasks[indexPath.row]
+        newtaskObject["name"] = taskCell["name"]
+        newtaskObject["author"] = PFUser.current()!
+        
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            PFUser.deleteInBackground(newtaskObject)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    */
 
     /*
     // MARK: - Navigation
