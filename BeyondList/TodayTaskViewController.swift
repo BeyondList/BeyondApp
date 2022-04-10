@@ -57,6 +57,8 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
         
         let task = tasks[indexPath.row]
         cell.taskNameLabel.text = task["name"] as! String
+        cell.taskObjectId = task.objectId as! String
+        cell.roundedView.layer.cornerRadius = cell.roundedView.frame.height / 8
         
         /*
          priority hasn't be set up yet
@@ -70,29 +72,38 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
        
     }
     
-    
-    /* needed for adding delete task cell func
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        let newtaskObject = PFObject(className: "Tasks")
-        let taskCell = tasks[indexPath.row]
-        newtaskObject["name"] = taskCell["name"]
-        newtaskObject["author"] = PFUser.current()!
         
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            
-            PFUser.deleteInBackground(newtaskObject)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        let taskCell = tasks[indexPath.row]
+        let objectIdToDelete = taskCell.objectId
+        let query = PFQuery(className: "Tasks")
+        
+        do {
+            let taskToDelete = try query.getObjectWithId(objectIdToDelete!)
+            if editingStyle == .delete {
+                tableView.beginUpdates()
+                
+                taskToDelete.deleteInBackground { (success, error) in
+                    if success {
+                        self.tasks.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                        print("Deleted!")
+                    } else {
+                        print("error!")
+                    }
+                    
+                }
+            }
             tableView.endUpdates()
+        } catch {
+            print(error)
         }
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    */
 
     /*
     // MARK: - Navigation

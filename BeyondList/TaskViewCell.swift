@@ -10,6 +10,8 @@ import UIKit
 class TaskViewCell: UITableViewCell {
 
     @IBOutlet weak var taskNameLabel: UILabel!
+    @IBOutlet weak var roundedView: UIView!
+    var taskObjectId = ""
     //priority outlet hasn't set yet.
     
     override func awakeFromNib() {

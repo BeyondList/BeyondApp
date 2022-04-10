@@ -34,7 +34,7 @@ class CreateNewTaskViewController: UIViewController {
          */
         
         
-        task.saveInBackground{ (success, error) in
+        task.saveInBackground(){ (success, error) in
             if success {
                 self.dismiss(animated: true, completion: nil)
                 print("saved!")
