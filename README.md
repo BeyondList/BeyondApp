@@ -36,6 +36,8 @@ V3 we would finally upload it to the market, and have it as a real product.
 * Welcome screen-->What is Task Pruning Screen in progress
 * User login/Sign up (in progress)
 * Create a Task (in progress)
+* User logout / switch account (in progress)
+* 
 * Delete a Task
 * Search for a task
 * Prune Tasks
@@ -49,7 +51,9 @@ V3 we would finally upload it to the market, and have it as a real product.
 * Users can be awarded a badge for each task done.
 * Users can add friends
 * Users can invite friends or join badge ranking races.
-* Settings
+* Settings (in progress)
+* User can load picture in profile (in progress)
+* User can edit a caption in profile(in progress)
 ### 2. Screen Archetypes
 * Welcome Screen
    * Animation showing how task pruning works
