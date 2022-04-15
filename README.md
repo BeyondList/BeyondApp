@@ -37,7 +37,6 @@ V3 we would finally upload it to the market, and have it as a real product.
 * User login/Sign up (in progress)
 * Create a Task (in progress)
 * User logout / switch account (in progress)
-* 
 * Delete a Task
 * Search for a task
 * Prune Tasks
@@ -58,6 +57,8 @@ V3 we would finally upload it to the market, and have it as a real product.
 * Welcome Screen
    * Animation showing how task pruning works
 * Login Screen
+  * login by using username and password
+  *  click 'submit' butto to sign up an account after typing in user name and password
   
 * Today Tab
    * Create a task
@@ -105,6 +106,8 @@ V3 we would finally upload it to the market, and have it as a real product.
 * Login Screen --> Today Tab --> Create-a-Task screen
 * Login Screen --> Tomorrow Tab --> Create-a-Task screen
 * Login Screen --> Dump Tab --> Create-a-Task screen
+* Login Screen --> Profile Tab --> Profile edit
+* Login Screen --> Setting Tab --> Login screen
 
 ## Wireframes
 <img src="https://raw.githubusercontent.com/mata-m/mata-m_public/main/Beyond.png" width=600>
@@ -475,7 +478,7 @@ class TomorrowTaskTableViewController: UITableViewController{
   
  * Existing API Endpoints
   ** Base URL - https://parseapi.back4app.com
-  
+  ** Base URL - https://github.com/Alamofire/AlamofireImage
 # Build Progress 1 
 <img src='https://recordit.co/tlNEhmMDG6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 Required Must-have Stories
