@@ -59,7 +59,7 @@ V3 we would finally upload it to the market, and have it as a real product.
 * Login Screen
   * login by using username and password
   *  click 'submit' butto to sign up an account after typing in user name and password
-  
+  * stay login
 * Today Tab
    * Create a task
    * Display Today's Tasks
@@ -185,42 +185,6 @@ Log out will just be a function on the local APP
 * Login Screen
   
 (Read/GET) 
-
-class LoginViewController: UIViewController {
-       
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    @IBAction func onSignIn(_ sender: Any) {
-        let username = usernameField.text!
-        let password = passwordField.text!
-        
-        PFUser.logInWithUsername(inBackground: username, password: password){(user, error)in
-            if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }else {
-                print("Error: \(error?.localizedDescription)")
-            }
-        }
-                
-    }
-    @IBAction func onSignUp(_ sender: Any) {
-        let user = PFUser()
-        user.username = usernameField.text
-        user.password = passwordField.text
-        user.signUpInBackground{(success, error )in
-            if success{
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }else{
-               print("Error: \(error?.localizedDescription)")
-            }
-        }
-    }
-}
    
 * Today Tab
   *(Create) Create a new Task
@@ -228,41 +192,7 @@ class LoginViewController: UIViewController {
   *(Update)  Update a Task
   *(Delete) Delete a Task
   
-  class LoginViewController: UIViewController {
-       
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    @IBAction func onSignIn(_ sender: Any) {
-        let username = usernameField.text!
-        let password = passwordField.text!
-        
-        PFUser.logInWithUsername(inBackground: username, password: password){(user, error)in
-            if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }else {
-                print("Error: \(error?.localizedDescription)")
-            }
-        }
-                
-    }
-    @IBAction func onSignUp(_ sender: Any) {
-        let user = PFUser()
-        user.username = usernameField.text
-        user.password = passwordField.text
-        user.signUpInBackground{(success, error )in
-            if success{
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }else{
-               print("Error: \(error?.localizedDescription)")
-            }
-        }
-    }
-}
+
    
 * Tomorrow Tab
   * (Create) Create a new Task
@@ -270,139 +200,13 @@ class LoginViewController: UIViewController {
   * (Update)  Update a Task
   * (Delete) Delete a Task
 
-    import UIKit
-import Parse
-
-class TomorrowTaskTableViewController: UITableViewController{
-   
-    @IBOutlet weak var tomorrowTaskTableView: UITableView!
-    var tasks = [PFObject]()
-    
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tomorrowTaskTableView.delegate = self
-        tomorrowTaskTableView.dataSource = self
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let query = PFQuery(className: "Tasks")
-        query.includeKey("author")
-        query.limit = 10
-        
-        query.findObjectsInBackground{(tasks, error) in
-            if tasks != nil {
-                self.tasks = tasks!
-                self.tomorrowTaskTableView.reloadData()
-            }
-        }
-    
-
-    // MARK: - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tomorrowTaskTableView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TaskViewCell
-        
-        let task = tasks[indexPath.row]
-        cell.taskNameLabel.text = task["name"] as! String
-        
-        /*
-         priority hasn't be set up yet
-         //cell.priorityLabel.text = task["priority"] as! String
-         */
-        
-        return cell
-    }
-}
-
-    @IBAction func onBackButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-    
 * Task Dump
   * (Create) Create a new Task
   * (Read/GET) Read all tasks and list them on Page
   * (Update)  Update a Task
   * (Delete) Delete a Task
 
-      import UIKit
-import Parse
-
-class TomorrowTaskTableViewController: UITableViewController{
-   
-    @IBOutlet weak var tomorrowTaskTableView: UITableView!
-    var tasks = [PFObject]()
-    
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tomorrowTaskTableView.delegate = self
-        tomorrowTaskTableView.dataSource = self
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let query = PFQuery(className: "Tasks")
-        query.includeKey("author")
-        query.limit = 10
-        
-        query.findObjectsInBackground{(tasks, error) in
-            if tasks != nil {
-                self.tasks = tasks!
-                self.tomorrowTaskTableView.reloadData()
-            }
-        }
-    
-
-    // MARK: - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tomorrowTaskTableView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TaskViewCell
-        
-        let task = tasks[indexPath.row]
-        cell.taskNameLabel.text = task["name"] as! String
-        
-        /*
-         priority hasn't be set up yet
-         //cell.priorityLabel.text = task["priority"] as! String
-         */
-        
-        return cell
-    }
-}
-
-    @IBAction func onBackButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-}
-
+      
 
 * Profile (Optional)
   * (Read/GET) Read Profile information such as images
@@ -412,69 +216,7 @@ class TomorrowTaskTableViewController: UITableViewController{
    * (Update) Update Settings
    * Delete user's account
 
-    import UIKit
-import Parse
-
-class TomorrowTaskTableViewController: UITableViewController{
-   
-    @IBOutlet weak var tomorrowTaskTableView: UITableView!
-    var tasks = [PFObject]()
-    
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tomorrowTaskTableView.delegate = self
-        tomorrowTaskTableView.dataSource = self
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let query = PFQuery(className: "Tasks")
-        query.includeKey("author")
-        query.limit = 10
-        
-        query.findObjectsInBackground{(tasks, error) in
-            if tasks != nil {
-                self.tasks = tasks!
-                self.tomorrowTaskTableView.reloadData()
-            }
-        }
-    
-
-    // MARK: - Table view data source
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tomorrowTaskTableView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TaskViewCell
-        
-        let task = tasks[indexPath.row]
-        cell.taskNameLabel.text = task["name"] as! String
-        
-        /*
-         priority hasn't be set up yet
-         //cell.priorityLabel.text = task["priority"] as! String
-         */
-        
-        return cell
-    }
-}
-
-    @IBAction func onBackButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-}
-
+  
   
  * Existing API Endpoints
   ** Base URL - https://parseapi.back4app.com
@@ -485,6 +227,9 @@ Required Must-have Stories
 
 # Completed User stories
   * ~~login/Sign up (Completed)~~
+  * Logout(completed)
+  * Read Profile information(completed)
+  * Load image and caption(completed
   * Create a Task (in-Progress)
   * Delete a Task (in-Progress)
   * Search for a task (in-Progress)
