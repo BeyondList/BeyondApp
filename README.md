@@ -224,7 +224,7 @@ Log out will just be a function on the local APP
 # Build Progress 1 
 <img src='https://recordit.co/tlNEhmMDG6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-
+# Build Progress 2
 <img src='http://g.recordit.co/dOn0xclptk.gif' title='Deleting a task' width='' alt='Deleting a task' />
 
 <img src='https://recordit.co/bLhd4eIHGz.gif' title='Profile-- load image' width='' alt='to load a image' />
