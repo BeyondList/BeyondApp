@@ -233,6 +233,7 @@ Required Must-have Stories
 - [ ] Create a Task (in-Progress)
 - [x] Delete a Task
 - [ ] Mark task as completed
+- [ ] Automatic Priority Sorting
 - [ ] Search for a task (in-Progress)
 - [ ] Prune Tasks
 - [ ] Move Task from Task Dump to Today or Tomorrow's list & vice-versa
