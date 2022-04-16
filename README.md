@@ -223,6 +223,10 @@ Log out will just be a function on the local APP
   ** Base URL - https://github.com/Alamofire/AlamofireImage
 # Build Progress 1 
 <img src='https://recordit.co/tlNEhmMDG6.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
+<img src='http://g.recordit.co/dOn0xclptk.gif' title='Deleting a task' width='' alt='Deleting a task' />
+
 Required Must-have Stories
 
 # Completed User stories
