@@ -230,11 +230,11 @@ Required Must-have Stories
 - [x] Logout(completed)
 - [x] Read Profile information(completed)
 - [x] Load image and caption(completed
-- [] Create a Task (in-Progress)
+- [ ] Create a Task (in-Progress)
 - [x] Delete a Task
-- [] Mark task as completed
-- [] Search for a task (in-Progress)
-- [] Prune Tasks
-- [] Move Task from Task Dump to Today or Tomorrow's list & vice-versa
-- [] Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and
+- [ ] Mark task as completed
+- [ ] Search for a task (in-Progress)
+- [ ] Prune Tasks
+- [ ] Move Task from Task Dump to Today or Tomorrow's list & vice-versa
+- [ ] Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and
  Urgency.
