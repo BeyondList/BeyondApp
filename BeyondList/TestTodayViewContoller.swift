@@ -1,22 +1,23 @@
 //
-//  TodayTaskViewController.swift
+//  TestTodayViewContoller.swift
 //  BeyondList
 //
-//  Created by 07elenazheng-@naver.com on 4/5/22.
+//  Created by Mark on 4/10/22.
 //
 
 import UIKit
 import Parse
 
-class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TestTodayViewContoller: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
-    @IBOutlet weak var todayTaskTableView: UITableView!
+
+    @IBOutlet weak var todayTaskTableView: TestTodayTableView!
     var tasks = [PFObject]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         todayTaskTableView.delegate = self
         todayTaskTableView.dataSource = self
+        todayTaskTableView.register(TestTaskTableViewCell.self, forCellReuseIdentifier: "testTaskCell")
         // Do any additional setup after loading the view.
     }
     
@@ -25,49 +26,38 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
         
         let query = PFQuery(className: "Tasks")
         query.includeKey("author")
-        query.limit = 10
+        query.limit = 4
         
         query.findObjectsInBackground{(tasks, error) in
             if tasks != nil {
                 self.tasks = tasks!
+                print("tasks was not nil")
                 self.todayTaskTableView.reloadData()
             }
         }
     }
     
-    @IBAction func onLogoutButton(_ sender: Any) {
-        PFUser.logOut()
-        
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else {return}
-        
-        delegate.window?.rootViewController = loginViewController
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tasks.count
     }
     
-
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+    override func viewDidLayoutSubviews() {
+       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = todayTaskTableView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TaskViewCell
+        let cell = todayTaskTableView.dequeueReusableCell(withIdentifier: "testTaskCell") as! TestTaskTableViewCell
         
         let task = tasks[indexPath.row]
+        print("testststs")
+        print(task["name"] as! String)
+        
+        /*
+        // Crashes here due to found nil
         cell.taskNameLabel.text = task["name"] as! String
         cell.taskObjectId = task.objectId as! String
         cell.roundedView.layer.cornerRadius = cell.roundedView.frame.height / 8
-        
-        //let _switch = UIButton()
-        
-        //_switch.isOn = true
-        //_switch.backgroundColor = #colorLiteral(red: 0.5514845945, green: 0.9542901354, blue: 1, alpha: 0.7765465561)
-        //_switch.setImage(UIImage(systemName: "checkmark.seal"), for: .normal)
-        //_switch.setTitleColor(#colorLiteral(red: 0.5514845945, green: 0.9542901354, blue: 1, alpha: 0.7765465561), for: .normal)
-        //_switch.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        //cell.accessoryView = _switch
+         */
         
         /*
          priority hasn't be set up yet
@@ -76,11 +66,7 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
         
         return cell
     }
-    
-    override func viewDidLayoutSubviews() {
-       
-    }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         
