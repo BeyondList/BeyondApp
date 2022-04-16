@@ -226,15 +226,25 @@ Log out will just be a function on the local APP
 Required Must-have Stories
 
 # Completed User stories
-  [x] ~~login/Sign up (Completed)~~
+  [x] ~~login/Sign up (Completed)~~ 
+
   [x] Logout(completed)
+
   [x] Read Profile information(completed)
+
   [x] Load image and caption(completed
+
   [] Create a Task (in-Progress)
+
   [x] Delete a Task
+
   [] Mark task as completed
+
   [] Search for a task (in-Progress)
+
   [] Prune Tasks
+
   [] Move Task from Task Dump to Today or Tomorrow's list & vice-versa
+  
   [] Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and
    Urgency.
