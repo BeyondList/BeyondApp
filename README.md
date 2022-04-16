@@ -227,6 +227,9 @@ Log out will just be a function on the local APP
 
 <img src='http://g.recordit.co/dOn0xclptk.gif' title='Deleting a task' width='' alt='Deleting a task' />
 
+<img src='https://recordit.co/bLhd4eIHGz.gif' title='Profile-- load image' width='' alt='to load a image' />
+
+
 Required Must-have Stories
 
 # Completed User stories
