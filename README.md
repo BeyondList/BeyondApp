@@ -229,6 +229,9 @@ Log out will just be a function on the local APP
 
 <img src='https://recordit.co/bLhd4eIHGz.gif' title='Profile-- load image' width='' alt='to load a image' />
 
+<img src='https://recordit.co/VVLVd2YUBt.gif' title='TabBarController -- to each pages' width='' alt='TabBarController -- to each pages' />
+
+
 
 Required Must-have Stories
 
@@ -239,8 +242,8 @@ Required Must-have Stories
 - [x] Load image and caption(completed
 - [x] Create a Task
 - [x] Delete a Task
-- [ ] Mark task as completed
-- [ ] Automatic Priority Sorting
+- [x] Mark task as completed
+- [x] Automatic Priority Sorting
 - [ ] Search for a task (in-Progress)
 - [ ] Prune Tasks
 - [ ] Move Task from Task Dump to Today or Tomorrow's list & vice-versa
