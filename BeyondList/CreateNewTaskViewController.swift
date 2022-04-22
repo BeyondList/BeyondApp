@@ -11,6 +11,9 @@ import Parse
 class CreateNewTaskViewController: UIViewController {
     
     @IBOutlet weak var taskTextField: UITextField!
+    @IBOutlet weak var importanceValue: UISegmentedControl!
+    @IBOutlet weak var urgencyValue: UISegmentedControl!
+    @IBOutlet weak var dateValue: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +24,14 @@ class CreateNewTaskViewController: UIViewController {
     @IBAction func onBackForward(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func onCancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
     @IBAction func onSubmitButton(_ sender: Any) {
         let task = PFObject(className: "Tasks")
         task["name"] = taskTextField.text!
         task["author"] = PFUser.current()!
-        /*
-         // how to implement 'priority'? tab?
-         task["priority"] = "Important and urgent"
-         */
+        
+        task["Priority"] = (urgencyValue.selectedSegmentIndex + 1) + (importanceValue.selectedSegmentIndex + 1)
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: -1, to: dateValue.date)
+        task["dueDate"] = modifiedDate
         
         
         task.saveInBackground(){ (success, error) in

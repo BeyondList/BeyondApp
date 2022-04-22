@@ -46,7 +46,7 @@ class TestTodayViewContoller: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = todayTaskTableView.dequeueReusableCell(withIdentifier: "testTaskCell") as! TestTaskTableViewCell
+        let cell = todayTaskTableView.dequeueReusableCell(withIdentifier: "testTaskCell") as! TaskViewCell
         
         let task = tasks[indexPath.row]
         print("testststs")
@@ -63,8 +63,17 @@ class TestTodayViewContoller: UIViewController, UITableViewDataSource, UITableVi
          priority hasn't be set up yet
          //cell.priorityLabel.text = task["priority"] as! String
          */
+        cell.completedButton.tag = indexPath.row
+        cell.completedButton.addTarget(self, action: #selector(delete(_:)), for: .touchUpInside)
         
         return cell
+    }
+    
+    @objc func handleRegister(_ sender: UIButton){
+        print("handling?")
+         tasks.remove(at:sender.tag)
+         todayTaskTableView.deleteRows(at:[IndexPath(row:sender.tag,section:0)],with:.none)
+        todayTaskTableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

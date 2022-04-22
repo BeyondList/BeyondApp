@@ -11,7 +11,9 @@ import Parse
 class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var todayTaskTableView: UITableView!
+
     var tasks = [PFObject]()
+    var lastTaskIndexUsed = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
         query.findObjectsInBackground{(tasks, error) in
             if tasks != nil {
                 self.tasks = tasks!
+                self.tasks.sort {$0["Priority"] as! Int > $1["Priority"] as! Int}
                 self.todayTaskTableView.reloadData()
             }
         }
@@ -49,30 +52,39 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var totalUncompletedDueToday = 0
+        
+        for object in tasks {
+            if ( Calendar.current.isDateInToday(object["dueDate"] as! Date) && (object["Completed"] as! Bool) == false ) {
+                totalUncompletedDueToday += 1
+            }
+        }
+        return totalUncompletedDueToday
+    }
+    
+    func getNextTaskToDisplay () -> Int {
+        for index in lastTaskIndexUsed...tasks.count {
+            if (tasks[index]["Completed"] as! Bool == false &&
+                Calendar.current.isDateInToday(tasks[index]["dueDate"] as! Date)) {
+                self.lastTaskIndexUsed = index + 1
+                return index
+            }
+        }
         return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todayTaskTableView.dequeueReusableCell(withIdentifier: "TaskViewCell") as! TaskViewCell
         
-        let task = tasks[indexPath.row]
+        let ind = getNextTaskToDisplay()
+        print(String(ind))
+        let task = tasks[ind]
+        
         cell.taskNameLabel.text = task["name"] as! String
         cell.taskObjectId = task.objectId as! String
         cell.roundedView.layer.cornerRadius = cell.roundedView.frame.height / 8
         
-        //let _switch = UIButton()
-        
-        //_switch.isOn = true
-        //_switch.backgroundColor = #colorLiteral(red: 0.5514845945, green: 0.9542901354, blue: 1, alpha: 0.7765465561)
-        //_switch.setImage(UIImage(systemName: "checkmark.seal"), for: .normal)
-        //_switch.setTitleColor(#colorLiteral(red: 0.5514845945, green: 0.9542901354, blue: 1, alpha: 0.7765465561), for: .normal)
-        //_switch.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        //cell.accessoryView = _switch
-        
-        /*
-         priority hasn't be set up yet
-         //cell.priorityLabel.text = task["priority"] as! String
-         */
+        cell.completedButton.tag = indexPath.row
         
         return cell
     }
@@ -108,6 +120,38 @@ class TodayTaskViewController: UIViewController, UITableViewDataSource, UITableV
         } catch {
             print(error)
         }
+    }
+    @IBAction func onClickCompleteButton(_ sender: UIButton) {
+        // There's a bug where if you delete multiple
+        // tasks in a row then you might get an indexPath.row oob
+        // because maybe you're supposed to reload whole table??
+        print("Deleting row: " + String(sender.tag))
+        let task = self.tasks[sender.tag]
+        task["completed"] = true
+        // Set the task as completed in Parse
+        // Make changes so that the table only shows non-completed tasks
+        
+        let query = PFQuery(className: "Tasks")
+        
+        let objectId:String = task.objectId!
+       
+        do {
+            let taskToDelete = try query.getObjectWithId(objectId)
+            taskToDelete["Completed"] = true
+            taskToDelete.saveInBackground()
+            
+        } catch {
+            print(error)
+        }
+        //taskToComplete["Completed"] = true
+        
+        //taskToComplete.saveInBackground()
+        
+        self.tasks.remove(at:sender.tag)
+        //todayTaskTableView.beginUpdates()
+        todayTaskTableView.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .none)
+        //todayTaskTableView.endUpdates()
+        todayTaskTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

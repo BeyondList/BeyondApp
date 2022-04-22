@@ -11,6 +11,7 @@ class TaskViewCell: UITableViewCell {
 
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var roundedView: UIView!
+    @IBOutlet weak var completedButton: UIButton!
     var taskObjectId = ""
     //priority outlet hasn't set yet.
     
