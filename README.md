@@ -245,7 +245,7 @@ Required Must-have Stories
 - [x] Mark task as completed
 - [x] Automatic Priority Sorting
 - [ ] Search for a task (in-Progress)
-- [ ] Prune Tasks
-- [ ] Move Task from Task Dump to Today or Tomorrow's list & vice-versa
-- [ ] Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and
+- [ ] Prune Tasks(in-Progress)
+- [ ] Move Task from Task Dump to Today or Tomorrow's list & vice-versa(in-Progress)
+- [x] Use the Eisenhower box format to rank tasks automatically for a user. Basically give each task an importance and
  Urgency.
