@@ -232,6 +232,7 @@ Log out will just be a function on the local APP
 <img src='https://recordit.co/VVLVd2YUBt.gif' title='TabBarController -- to each pages' width='' alt='TabBarController -- to each pages' />
 # Build Progress 3
 <img src='http://g.recordit.co/oBUdPu7QC1.gif' title='TabBarController -- to each pages' width='' alt='Create Tasks' />
+<img src='https://recordit.co/gV7U3rLQsh.gif' title='TabBarController -- to each pages' width='' alt='Create Tasks' />
 Required Must-have Stories
 
 # Completed User stories
