@@ -238,6 +238,9 @@ Log out will just be a function on the local APP
 <img src='https://recordit.co/gV7U3rLQsh.gif' title='TabBarController -- to each pages' width='' alt='Create Tasks' />
 Required Must-have Stories
 
+<img src='https://recordit.co/OD9U7cOnLL.gif' title='Swipe to edit tableview row' width='' alt='Swipe to edit tableview row' />
+Required Must-have Stories
+
 # Completed User stories
 - [x] login/Sign up (Completed) 
 - [x] Logout(completed)
